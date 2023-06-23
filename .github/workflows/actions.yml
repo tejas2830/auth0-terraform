@@ -33,7 +33,7 @@ jobs:
        uses: hashicorp/setup-terraform@v2
 
      - name: Configure Auth0 Credentials
-       uses: |
+       run: |
           export "TF_VAR_AUTH0_DOMAIN=$AUTH0_DOMAIN"
           export "TF_VAR_AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID"
           export "TF_VAR_AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET"
@@ -46,7 +46,6 @@ jobs:
 
      # Generates an execution plan for Terraform
      - name: Terraform Plan
-       env:
        run: |
         echo "** Running Terraform Plan **"
         terraform -chdir='./auth0-terraform' plan

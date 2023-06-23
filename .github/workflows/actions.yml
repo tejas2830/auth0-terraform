@@ -33,13 +33,13 @@ jobs:
 
      # Install the latest version of Terraform CLI and configure the Terraform CLI configuration.
      - name: Install Terraform
-       run: hashicorp/setup-terraform@v2
+       uses: hashicorp/setup-terraform@v2
         #  wget -O- https://apt.releases.hashicorp.com/gpg | gpg --dearmor | sudo tee /usr/share/keyrings/hashicorp-archive-keyring.gpg
         #  echo "deb [signed-by=/usr/share/keyrings/hashicorp-archive-keyring.gpg] https://apt.releases.hashicorp.com $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/hashicorp.list
         #  sudo apt update && sudo apt install terraform
 
      - name: Configure Auth0 Credentials
-       run: |
+       uses: |
           export "TF_VAR_AUTH0_DOMAIN=$AUTH0_DOMAIN"
           export "TF_VAR_AUTH0_CLIENT_ID=$AUTH0_CLIENT_ID"
           export "TF_VAR_AUTH0_CLIENT_SECRET=$AUTH0_CLIENT_SECRET"

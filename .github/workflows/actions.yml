@@ -43,10 +43,10 @@ jobs:
      - name: Terraform Init
        run: |
         echo "** Running Terraform Init **"
-        terraform -chdir='./auth0-terraform' init
+        terraform init
 
      # Generates an execution plan for Terraform
      - name: Terraform Plan
        run: |
         echo "** Running Terraform Plan **"
-        terraform -chdir='./auth0-terraform' plan
+        terraform plan
